@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
 class PersonaModelo {
-  final IconData iconoIzquierda;
-  final IconData iconoDerecha;
-  final String nombre;
-  final String descripcion;
-  final String nickname;
+  IconData iconoIzquierda;
+  IconData iconoDerecha;
+  String nombre;
+  String descripcion;
+  String nickname;
+  String telefono;
 
   PersonaModelo(
       {required this.iconoIzquierda,
       required this.iconoDerecha,
       required this.nombre,
       required this.descripcion,
-      required this.nickname});
+      required this.nickname,
+      required this.telefono});
 }
 
 PersonaModelo persona1 = PersonaModelo(
@@ -20,18 +22,21 @@ PersonaModelo persona1 = PersonaModelo(
     descripcion: 'Ejemplo de modelo 1',
     iconoDerecha: Icons.message,
     iconoIzquierda: Icons.person,
-    nickname: 'Osesno');
+    nickname: 'Osesno',
+    telefono: '5553259000');
 
 PersonaModelo persona2 = PersonaModelo(
     nombre: 'Juancho Palafox',
     descripcion: 'Ejemplo de modelo 2',
     iconoDerecha: Icons.message,
     iconoIzquierda: Icons.person,
-    nickname: 'JJames');
+    nickname: 'JJames',
+    telefono: '5553258000');
 
 PersonaModelo persona3 = PersonaModelo(
     nombre: 'Pancho Marañón',
     descripcion: 'Ejemplo de modelo 3',
     iconoDerecha: Icons.message,
     iconoIzquierda: Icons.person,
-    nickname: 'Panchisco');
+    nickname: 'Panchisco',
+    telefono: '5553257000');

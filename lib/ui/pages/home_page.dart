@@ -1,45 +1,11 @@
-import 'package:curso_flutter_basico/models/persona_modelo.dart';
-import 'package:curso_flutter_basico/ui/widgets/custom_buttons.dart';
-import 'package:curso_flutter_basico/ui/widgets/custom_listtile.dart';
+import 'package:curso_flutter_basico/ui/pages/informacion_usuario_page.dart';
+import 'package:curso_flutter_basico/ui/pages/lista_contactos_page.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-List<PersonaModelo> persons = [
-  persona1,
-  persona2,
-  persona3,
-  persona1,
-  persona2,
-  persona3,
-  persona1,
-  persona2,
-  persona3,
-  persona1,
-  persona2,
-  persona3,
-  persona1,
-  persona2,
-  persona3
-];
+List<Widget> pages = [ListaContactosPage(), const InformacionUsuarioPage()];
 
-List<Widget> pages = [
-  // ignore: avoid_unnecessary_containers
-  Container(
-    child: Column(
-      children: <Widget>[
-        const CustomButton(),
-        Expanded(
-          child: ListView(
-            children: <Widget>[
-              for (int i = 0; i < persons.length; i++)
-                CustomListTile(person: persons[i])
-            ],
-          ),
-        )
-      ],
-    ),
-  ),
-  Container(color: Colors.blue)
-];
+GlobalKey<ScaffoldState> homeKey = GlobalKey<ScaffoldState>();
 
 // ignore: must_be_immutable
 class HomePage extends StatefulWidget {
@@ -64,6 +30,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: homeKey,
         drawer: Drawer(
             child: Column(
           children: <Widget>[
@@ -73,6 +40,7 @@ class _HomePageState extends State<HomePage> {
                   color: Theme.of(context).primaryColor,
                 )),
             ListTile(
+              leading: const Icon(MdiIcons.homeCircle),
               title: const Text('Inicio'),
               onTap: () {
                 Navigator.pop(context);
@@ -82,7 +50,8 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             ListTile(
-              title: const Text('Segunda Pantalla'),
+              leading: const Icon(MdiIcons.accountBox),
+              title: const Text('Usuario'),
               onTap: () {
                 Navigator.pop(context);
                 setState(() {
